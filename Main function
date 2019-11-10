@@ -1,0 +1,29 @@
+//Input: My Name Is this
+//Output: Ym Eman Si Siht
+
+#include <stdio.h>
+
+int main()
+{
+    int i, j, count=0, num;
+    char str[1000];
+    scanf("%[^\n]s", str);
+    
+    for(count=0; str[count]!='\0'; count++);
+    
+    for(i=0; (i<=count || str[i]!='\0'); i++){
+        if(str[i]==' ' || str[i]=='\0'){
+            num=(int)str[i-1];          //Getting last letter in integer
+            printf("%c",(num-32));      //printing last letter as a capital letter
+            for(j=i-2; str[j-1]!='\0'; j--){
+                printf("%c", str[j]);
+            }
+            num=(int)str[j];
+            printf("%c", num+32);       //Printing first letter as a small letter
+            str[i]='\0';
+            printf(" ");
+        }
+    }
+    
+    return 0;
+}
